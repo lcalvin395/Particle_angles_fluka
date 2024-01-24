@@ -6,9 +6,9 @@ import matplotlib.ticker
 from matplotlib.ticker import (MultipleLocator, 
                                FormatStrFormatter, 
                                AutoMinorLocator) 
-path="/Users/lukecalvin/2021/muons_high_prim/"
-file1 = open("%smuon+time.txt"%(path), "r")
-file2 = open("%smuon-time.txt"%(path), "r")
+path="/Users/lukecalvin/2023/eli_np_muon_primaries_1.0GeV/"
+file1 = open("%smuon+_time.txt"%(path), "r")
+file2 = open("%spositime.txt"%(path), "r")
 x=0
 y=0
 energy=[]
@@ -137,6 +137,7 @@ font = {'family' : 'Arial',
         'weight' : 'normal',
         'size'   : 17}
 
+
 matplotlib.rc('font', **font)
 matplotlib.rc('xtick', labelsize=13) 
 matplotlib.rc('ytick', labelsize=13) 
@@ -145,7 +146,7 @@ plt.ylabel("Divergence - (rad)")
 plt.xlabel('Energy - (GeV)')
 #title = ("Muon energy vs divergence - 2GeV")
 #plt.title(title)
-ax.plot(energymuon, divmuon, 'o', color='blue', markersize=1, label='Muon-')
+#ax.plot(energymuon, divmuon, 'o', color='blue', markersize=1, label='Muon-')
 ax.plot(energymuonnew,divmuonnew, 'o', color='red', markersize=1, label='Muon+')
 leg = ax.legend();
 #ax.xaxis.set_major_locator(plt.MultipleLocator(0.05))
@@ -155,3 +156,5 @@ plt.savefig('%sdivergencevsenergy_muonboth.png'%(path),bbox_inches='tight', dpi=
 plt.show()
 print(divmuon)
 print(energymuon)
+print(np.mean(divmuonnew))
+print(len(divmuonnew))
